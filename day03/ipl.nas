@@ -1,5 +1,7 @@
 ; hello-os
 ; TAB=4
+CYLS    EQU 10
+
     ORG     0x7c00          ; 指明程序的装载地址
 
 ; 标准FAT12格式软盘专用的代码 Stand FAT12 format floppy code
@@ -38,17 +40,44 @@ entry:
     MOV     CH, 0           ; 柱面0
     MOV     DH, 0           ; 磁头0
     MOV     CL, 2           ; 扇区2
-    
+
+readloop:
+    MOV     SI, 0           ; 记录失败次数的寄存器
+
+retry:
     MOV     AH, 0x02        ; 读盘
     MOV     AL, 1           ; 1个扇区
     MOV     BX, 0
     MOV     DL, 0x00        ; A驱动器
     INT     0x13            ; 调用磁盘BIOS
-    JC      error
-    
+    JNC     next            ; 没出错的话跳到next
+    ADD     SI, 1           ; 往SI加1
+    CMP     SI, 5           ; 比较SI与5
+    JAE     error           ; SI>=5时跳转到error
+    MOV     AH, 0x00
+    MOV     DL, 0x00
+    INT     0x13            ; 重置驱动器
+    JMP     retry
 
-    MOV     ES, AX
+next:
+    MOV     AX, ES          ; 把内存后移0x200
+    ADD     AX, 0x0020
+    MOV     ES, AX          ; 因为没有ADD ES,0x200，所以绕个弯
+    ADD     CL, 1
+    CMP     CL, 18          ; 比较CL和18
+    JBE     readloop        ; 如果CL<=18,跳转至readloop
+    MOV     CL, 1
+    ADD     DH, 1
+    CMP     DH, 2
+    JB      readloop        ; 如果DH<2，则跳至readloop
+    MOV     DH, 0
+    ADD     CH, 1
+    CMP     CH, CYLS
+    JB      readloop
+    MOV     [0x0ff0], CYLS
+    JMP     0xc200
 
+error:
     MOV     SI, msg
 
 putloop:
@@ -68,9 +97,7 @@ fin:
 
 msg:
     DB      0x0a, 0x0a      ; 换行2次
-    DB      "hello, world!"  
-    DB      0x0a, 0x0d
-    DB      "This is AHJ's OS."
+    DB      "Load error!"  
     DB      0x0a
     DB      0
 
