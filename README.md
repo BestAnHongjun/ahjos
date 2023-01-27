@@ -38,6 +38,19 @@
 * 编辑VGA显示调色板
 * 显示器绘制矩形
 
-[helloos04.img](day03/helloos04.img)
+[helloos04.img](day04/helloos04.img)
 
 ![day04](markdown/imgs/log/day04.png)
+
+### [**day05**, 2023/1/27](day05/)
+* 由内存接收启动信息
+* 结构体struct的使用
+* 使用OSASK字体数据
+* 在屏幕显示字符（字符串）
+* 使用sprintf显示变量
+* 显示鼠标指针
+* GDT与IDT初始化
+  
+[helloos05.img](day05/helloos05.img)
+
+![day05](markdown/imgs/log/day05.png)
