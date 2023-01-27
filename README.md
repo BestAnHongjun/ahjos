@@ -1,85 +1,39 @@
-## 常用指令
-### 1.NASM编译与反编译指令
-* 编译指令
-```sh
-nasm boot.asm -o boot.bin
-```
-* 反编译指令
-```sh
-ndisasm -o 0x7c00 boot.bin >> disboot.asm
-```
-### 2.NASK编译指令
-* 编译指令
-```sh
-nask helloos.nas helloos.img
-```
-## CPU内寄存器
-### 16位寄存器
-* AX：accumulator，累加寄存器
-* CX：counter，计数寄存器
-* DX：data，数据寄存器
-* BX：base，基址寄存器
-* SP：stack pointer，栈指针寄存器
-* BP：base pointer，基址指针寄存器
-* SI：source index，源变址寄存器
-* DI：destination index，目的变址寄存器
-### 8位寄存器
-* AL：累加寄存器低位(accumulator low)
-* CL：计数寄存器低位(counter low)
-* DL：数据寄存器低位(data low)
-* BL：基址寄存器低位(base low)
-* AH：累加寄存器高位(accumulator high)
-* CH：计数寄存器高位(counter high)
-* DH：数据寄存器高位(data high)
-* BH：基址寄存器高位(base high)
-### 32位寄存器
-* EAX, ECX, EDX, EBX, ESP, EBP, ESI, EDI
-### 16位段寄存器
-* ES：附加段寄存器(extra segment)
-* CS：代码段寄存器(code segment)
-* SS：栈段寄存器(stack segment)
-* DS：数据段寄存器(data segment)
-* FS：没有名称(segment part 2)
-* GS：没有名称(segment part 3)
+# AHJOS：动手编写操作系统
+参考《30天自制操作系统》，学习操作系统内部原理，并动手编写属于自己的操作系统（暂且不要脸地命名为AHJOS吧hhhhh）
+## 学习笔记
+* [常用编译/反编译指令](markdown/sh_sample.md)
+* [CPU寄存器](markdown/cpu_register.md)
+* [BIOS程序指令](markdown/bios.md)
 
-## BIOS程序
-### 1.显示一个字符
-```asm
-AH = 0x0e;
-AL = character code;
-BH = 0;
-BL = color code;
-返回值：无
-BIOS中断指令：
-INT 0x10
-```
-### 2.磁盘操作
-```asm
-AH = 0x02;  (读盘)
-AH = 0x03;  (写盘)
-AH = 0x04;  (校验)
-AH = 0x0c;  (寻道)
-AL = 处理对象的扇区数;(只能同时处理连续的扇区)
-CH = 柱面号 & 0xff;
-CL = 扇区号(0-5位) | (柱面号 & 0x300) >> 2;
-DH = 磁头号
-DL = 驱动器号
-ES:BX = 缓冲地址;   (校验及寻道时不使用)
-返回值：
-FLAGS.CF == 0: 没有错误, AH == 0
-FLAGS.CF == 1: 有错误，错误号码存入AH内
-BIOS中断指令：
-INT 0x13
-```
-### 3.设置VGA显卡模式
-```asm
-AH = 0x00;
-AL = 模式：(省略了一些不重要的画面模式)
-    0x03: 16色字符模式，80x25
-    0x12：VGA图形模式，640x480x4位彩色模式，独特的4面存储模式
-    0x13: VGA图形模式，320x200x8位彩色模式，调色板模式
-    0x6a: 扩展VGA图形模式，800x600x4位彩色模式，独特的4面存储模式（有的显卡不支持）
-返回值：无
-BIOS中断指令：
-INT 0x10
-```
+## 演化日志
+### [**day01**，2023/1/26](day01/)
+* 初次使用汇编语言编写程序
+* 使用Bz.exe查看/编辑二进制文件
+* 了解了如何制作FAT12格式启动区，并引导计算机启动
+
+[helloos.img](day01/helloos.img)
+![day01](markdown/imgs/log/day01.png)
+
+### [**day02**，2023/1/26](day02/)
+* 学习了部分CPU寄存器的使用方法
+* 学习了Makefile的使用方法
+
+[helloos02.2.img](day02/helloos02.2.img)
+![day02](markdown/imgs/log/day02.png)
+
+### [**day03**，2023/1/27](day03/)
+* 制作了真正意义的IPL
+* 学习了读取软盘至内存的方法，并读取至软盘的第10个柱面的第18个扇区
+* 进入32位模式并导入C语言
+* 控制VGA显卡，切换至320x200x8位彩色模式，并显示黑屏
+
+[helloos03.img](day03/helloos03.img)
+![day03](markdown/imgs/log/day03.png)
+
+### [**day04**, 2023/1/27](day04/)
+* 用C语言实现内存写入（显存）
+* 编辑VGA显示调色板
+* 显示器绘制矩形
+
+[helloos04.img](day03/helloos04.img)
+![day04](markdown/imgs/log/day04.png)
