@@ -12,6 +12,7 @@
 * 了解了如何制作FAT12格式启动区，并引导计算机启动
 
 [helloos.img](day01/helloos.img)
+
 ![day01](markdown/imgs/log/day01.png)
 
 ### [**day02**，2023/1/26](day02/)
@@ -19,6 +20,7 @@
 * 学习了Makefile的使用方法
 
 [helloos02.2.img](day02/helloos02.2.img)
+
 ![day02](markdown/imgs/log/day02.png)
 
 ### [**day03**，2023/1/27](day03/)
@@ -28,6 +30,7 @@
 * 控制VGA显卡，切换至320x200x8位彩色模式，并显示黑屏
 
 [helloos03.img](day03/helloos03.img)
+
 ![day03](markdown/imgs/log/day03.png)
 
 ### [**day04**, 2023/1/27](day04/)
@@ -36,4 +39,5 @@
 * 显示器绘制矩形
 
 [helloos04.img](day03/helloos04.img)
+
 ![day04](markdown/imgs/log/day04.png)
