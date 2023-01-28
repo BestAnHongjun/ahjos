@@ -54,3 +54,12 @@
 [helloos05.img](day05/helloos05.img)
 
 ![day05](markdown/imgs/log/day05.png)
+
+### [**day06**, 2023/1/28](day06/)
+* 编写头文件，进行分割编译
+* 编写了中断处理函数
+* 能够接收键盘中断
+
+[helloos06.img](day06/helloos06.img)
+
+![day06](markdown/imgs/log/day06.png)
