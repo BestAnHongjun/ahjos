@@ -1,6 +1,7 @@
 # AHJOS：自己动手编写的操作系统
 参考《30天自制操作系统》，学习操作系统内部原理，并动手编写属于自己的操作系统（暂且不要脸地命名为AHJOS吧hhhhh）
 ## 学习笔记
+* [AHJOS内存分布图](markdown/mem.md)
 * [常用编译/反编译指令](markdown/sh_sample.md)
 * [CPU寄存器](markdown/cpu_register.md)
 * [BIOS程序指令](markdown/bios.md)
@@ -73,3 +74,11 @@
 [helloos07.img](day07/helloos07.img)
 
 ![day07](markdown/imgs/log/day07.png)
+
+### [**day08**, 2023/1/28](day08/)
+* 解码鼠标数据
+* 鼠标能动了！
+
+[helloos08.img](day07/helloos08.img)
+
+![day08](markdown/imgs/log/day08.png)
