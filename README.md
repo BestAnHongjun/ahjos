@@ -81,6 +81,14 @@
 * 解码鼠标数据
 * 鼠标能动了！
 
-[helloos08.img](day07/helloos08.img)
+[helloos08.img](day08/helloos08.img)
 
 ![day08](markdown/imgs/log/day08.png)
+
+### [**day09**, 2023/1/28](day09/)
+* 加入内存管理模块
+* 实现基础的内存管理功能
+
+[helloos09.img](day09/helloos09.img)
+
+![day09](markdown/imgs/log/day09.png)
