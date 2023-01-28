@@ -97,6 +97,15 @@
 * 以4KB为单位进行内存管理，减少碎片化
 * 基于图层，优化叠加处理，解决了鼠标与画面重叠问题
 
-[ahjos10.img](day10/shj10.img)
+[ahjos10.img](day10/ahj10.img)
 
 ![day10](markdown/imgs/log/day10.png)
+
+### [**day11**, 2023/1/28](day11/)
+* 优化了图层函数
+* 创建了窗口（有那么个OS的样了）
+* 优化显示，消除闪烁
+
+[ahjos11.img](day10/ahj11.img)
+
+![day11](markdown/imgs/log/day11.png)
