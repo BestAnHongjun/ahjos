@@ -92,3 +92,11 @@
 [helloos09.img](day09/helloos09.img)
 
 ![day09](markdown/imgs/log/day09.png)
+
+### [**day10**, 2023/1/28](day10/)
+* 以4KB为单位进行内存管理，减少碎片化
+* 基于图层，优化叠加处理，解决了鼠标与画面重叠问题
+
+[ahjos10.img](day10/shj10.img)
+
+![day10](markdown/imgs/log/day10.png)
