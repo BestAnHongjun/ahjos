@@ -64,3 +64,12 @@
 [helloos06.img](day06/helloos06.img)
 
 ![day06](markdown/imgs/log/day06.png)
+
+### [**day07**, 2023/1/28](day07/)
+* 接收键盘中断基础上，确定按下的按键与松开的按键
+* 使用FIFO缓冲区接受键盘按键
+* 能够接收鼠标中断
+
+[helloos07.img](day07/helloos07.img)
+
+![day07](markdown/imgs/log/day07.png)
