@@ -106,6 +106,15 @@
 * 创建了窗口（有那么个OS的样了）
 * 优化显示，消除闪烁
 
-[ahjos11.img](day10/ahj11.img)
+[ahjos11.img](day11/ahj11.img)
 
 ![day11](markdown/imgs/log/day11.png)
+
+### [**day12**, 2023/2/1](day12/)
+* 创建了定时器
+* 实现了多个定时器同时处理
+* 优化了定时器中断处理速度
+
+[ahjos12.img](day12/ahj12.img)
+
+![day12](markdown/imgs/log/day12.png)
